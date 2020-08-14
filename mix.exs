@@ -59,6 +59,7 @@ defmodule NookBook.MixProject do
       {:phoenix, "~> 1.5.4"},
       {:phoenix_live_view, "~> 0.13.0"},
       {:floki, ">= 0.0.0", only: :test},
+      {:libcluster, "~> 3.2"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.2"},

@@ -27,6 +27,8 @@ config :mnesia, :dir, 'mnesia/data'
 
 config :nook_book, cluster_role: :primary, primary_node: :"n1@127.0.0.1"
 
+config :libcluster, topologies: []
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

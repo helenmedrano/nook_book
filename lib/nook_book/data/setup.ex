@@ -11,7 +11,9 @@ defmodule NookBook.Data.Setup do
   end
 
   def setup(:member) do
-    Node.connect(Application.get_env(:nook_book, :primary_node))
+    # should happen automatically when libcluster starts
+    # Mnesia should start after that happens
+    #Node.connect(Application.get_env(:nook_book, :primary_node))
     Logger.info("Setting up mnesia for member node, cluster peers:")
     Logger.info(inspect(nodes()))
 
