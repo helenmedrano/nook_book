@@ -10,18 +10,40 @@ defmodule NookBook.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      # NEW needed to deploy
+      releases: releases()
     ]
   end
 
   # Configuration for the OTP application.
   #
   # Type `mix help compile.app` for more information.
+  # By default - phx won't start an application
   def application do
     [
       mod: {NookBook.Application, []},
+      # don't want to add to extra_applications
+      # will start by default and it can't be controlled when that happens
+      # enough for it to be compiled in
+      # won't start automatically
+      # check other conditions first
       extra_applications: [:logger, :runtime_tools],
+      included_applications: [:mnesia],
       start_phases: [init: []]
+    ]
+  end
+
+  # a package that erlang knows how to create
+  # all compiled source
+  # no cross compilation
+  # target has to be something similar to what we're going to run
+  defp releases do
+    [
+      nook_book: [
+        include_executables_for: [:unix],
+        steps: [:assemble, :tar]
+      ]
     ]
   end
 
