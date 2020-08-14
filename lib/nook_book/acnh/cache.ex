@@ -45,8 +45,8 @@ defmodule NookBook.ACNH.Cache do
     Private.record_from_cache(:sea_creature_icon, :sea_creature_icon, id)
   end
 
-  def creature_image(id) do
-    Private.record_from_cache(:creature_image, :creature_image, id)
+  def sea_creature_image(id) do
+    Private.record_from_cache(:sea_creature_image, :sea_creature_image, id)
   end
 
   defmodule Private do
@@ -60,7 +60,7 @@ defmodule NookBook.ACNH.Cache do
         [] ->
           apply(Client, function, [])
           |> Enum.reject(fn record -> is_nil(record["id"]) end)
-          |> Enum.map(&Cache.set({:bug, &1["id"]}, &1))
+          |> Enum.map(&Cache.set({namespace, &1["id"]}, &1))
 
         list ->
           list
