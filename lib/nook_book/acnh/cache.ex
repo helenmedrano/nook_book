@@ -17,6 +17,38 @@ defmodule NookBook.ACNH.Cache do
     Private.record_from_cache(:bug_image, :bug_image, id)
   end
 
+  def fish() do
+    Private.list_from_cache(:fish, :fish)
+  end
+
+  def fish(id) do
+    Private.record_from_cache(:fish, :fish, id)
+  end
+
+  def fish_icon(id) do
+    Private.record_from_cache(:fish_icon, :fish_icon, id)
+  end
+
+  def fish_image(id) do
+    Private.record_from_cache(:fish_image, :fish_image, id)
+  end
+
+  def sea_creatures() do
+    Private.list_from_cache(:sea_creature, :sea_creatures)
+  end
+
+  def sea_creature(id) do
+    Private.record_from_cache(:sea_creature, :sea_creature, id)
+  end
+
+  def sea_creature_icon(id) do
+    Private.record_from_cache(:sea_creature_icon, :sea_creature_icon, id)
+  end
+
+  def creature_image(id) do
+    Private.record_from_cache(:creature_image, :creature_image, id)
+  end
+
   defmodule Private do
     alias NookBook.ACNH.API.Client, as: Client
     alias NookBook.Data.GenericCache, as: Cache
