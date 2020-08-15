@@ -76,6 +76,9 @@ resource "aws_instance" "nookbook1" {
   ami = "ami-016b213e65284e9c9"
   vpc_security_group_ids = ["${aws_security_group.nookbook.id}"]
   subnet_id = var.nookbook_private_subnet
+  tags = {
+    Name = "${var.name}-instance-1"
+  }
 }
 
 resource "aws_instance" "nookbook2" {
@@ -83,6 +86,9 @@ resource "aws_instance" "nookbook2" {
   ami = "ami-016b213e65284e9c9"
   vpc_security_group_ids = ["${aws_security_group.nookbook.id}"]
   subnet_id = var.nookbook_private_subnet
+  tags = {
+    Name = "${var.name}-instance-2"
+  }
 }
 
 resource "aws_lb_target_group_attachment" "attachment1" {
