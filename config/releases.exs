@@ -1,5 +1,7 @@
 import Config
 
+name = "helen"
+
 config :libcluster,
   toplologies: [
     nook_book: [
@@ -16,6 +18,6 @@ config :libcluster,
 config :nook_book, NookBookWeb.Endpoint,
   server: true,
   http: [port: 4000],
-  url: [host: "localhost"],
+  url: [host: "#{name}.nookbook.online"],
   secret_key_base: "OnC6vW+NUduzaa4dHrpbq72wmiS983A7JStYHZKuLAxwpW+0V0z6Q2oV04ARdj2Y"
   # don't need prod secrets
