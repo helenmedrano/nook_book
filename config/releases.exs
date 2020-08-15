@@ -6,8 +6,8 @@ config :libcluster,
       strategy: Cluster.Strategy.Epmd,
       config: [
         hosts: [
-          :"nook_book@10.0.1.163",
-          :"nook_book@10.0.1.190",
+          :"nook_book@10.0.1.122",
+          :"nook_book@10.0.1.141",
         ]
       ]
     ]
